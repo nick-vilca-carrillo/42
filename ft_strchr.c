@@ -6,7 +6,7 @@
 /*   By: nivilca- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 17:26:26 by nivilca-          #+#    #+#             */
-/*   Updated: 2024/10/02 18:56:31 by nivilca-         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:22:43 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ char	*ft_strchr(const char *s, int c)
 	while (*s != '\0')
 	{
 		if (*s == (char)c)
-			return (char *)s;
+			return ((char *)s);
 		s++;
 	}
 	if (*s == (char)c)
-		return (char *)s;
+		return ((char *)s);
 	return (NULL);
 }
