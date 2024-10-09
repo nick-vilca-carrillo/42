@@ -9,3 +9,7 @@
 /*   Updated: 2024/10/05 14:30:21 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void ft_putchar_fd(char c, int fd) {
+    write(fd, &c, 1);  // Enviar el carácter 'c' al file descriptor 'fd'
+}
