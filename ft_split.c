@@ -33,84 +33,57 @@ int	count(const char *s, char c)
 	return (count);
 }
 
-char	*duplic(const char *start, int len)
-{
-	char	*word;
-	int		i;
-
-	i = 0;
-	word = (char *)malloc(len + 1);
-	if (!word)
-		return (NULL);
-	while (i < len)
-	{
-		word[i] = start[i];
-		i++;
-	}
-	word[i] = '\0';
-	return (word);
-}
-
-void	free(char **result, int i)
+void	free_memory(char **result, int i)
 {
 	while (i >= 0)
 	{
-		free (result[i]);
+		free(result[i]);
 		i--;
 	}
+	free(result);
 }
-char *extract_word(const char **s, char c, int *len)
+
+char	*extract_word(char const **s, char c)
 {
-    const char *start;
-    *len = 0;
+	const char	*start;
+	int			lenght;
 
-    // Saltar los delimitadores
-    while (**s == c && **s)
-        (*s)++;
-
-    // Si hay una palabra, encontrar su longitud
-    if (**s)
-    {
-        start = *s; // Guardar el inicio de la palabra
-        while ((*s)[*len] && (*s)[*len] != c)
-            (*len)++;
-        
-        return duplic(start, *len); // Extraer la palabra
-    }
-    return NULL; // No hay más palabras
+	start = *s;
+	while (**s && **s != c)
+		(*s)++;
+	lenght = *s - start;
+	return (ft_substr(start, 0, lenght));
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    int word_count;      // Número de palabras
-    char **result;       // Array de strings a devolver
-    int i;               // Índice para el array de strings
-    int len;             // Longitud de cada palabra
+	char	**result;
+	int		i;
 
-    word_count = count(s, c);  // Contar las palabras
-    if (!s)                    // Comprobar si la cadena de entrada es nula
-        return (NULL);
-    result = (char **)malloc((word_count + 1) * sizeof(char *));
-    if (!result)
-        return (NULL);
-    i = 0;  // Inicializar el índice
-    while (*s)
-    {
-        result[i] = extract_word(&s, c, &len);  // Extraer la palabra
-        if (!result[i])  // Si falla, liberar memoria
-        {
-            free_memory(result, i);
-            return (NULL);
-        }
-        if (*s) // Mover el puntero al final de la palabra
-        {
-            s += len;
-            i++;
-        }
-    }
-    result[i] = NULL;  // Terminar el array con NULL
-    return (result);
+	if (!s)
+		return (NULL);
+	result = (char **)malloc((count(s, c) + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			result[i] = extract_word(&s, c);
+			if (!result[i++])
+			{
+				free_memory(result, i - 1);
+				return (NULL);
+			}
+		}
+		else
+			s++;
+	}
+	result[i] = NULL;
+	return (result);
 }
+
 
 
 
