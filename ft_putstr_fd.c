@@ -6,17 +6,19 @@
 /*   By: nivilca- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:30:50 by nivilca-          #+#    #+#             */
-/*   Updated: 2024/10/05 14:30:51 by nivilca-         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:33:02 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putstr_fd(char *s, int fd) {
-    if (s == NULL)  
+#include "libft.h"
 
-    while (*s) {  
-        write(fd, s, 1); 
-        s++; 
-    }
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (s == NULL)
+		return ;
+	while (*s)
+	{
+		write (fd, s, 1);
+		s++;
+	}
 }
-
-

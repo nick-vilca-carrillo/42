@@ -6,10 +6,13 @@
 /*   By: nivilca- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:30:20 by nivilca-          #+#    #+#             */
-/*   Updated: 2024/10/05 14:30:21 by nivilca-         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:14:45 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putchar_fd(char c, int fd) {
-    write(fd, &c, 1);  // Enviar el carácter 'c' al file descriptor 'fd'
+#include "libft.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write (fd, &c, 1);
 }

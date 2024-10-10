@@ -6,19 +6,20 @@
 /*   By: nivilca- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:31:12 by nivilca-          #+#    #+#             */
-/*   Updated: 2024/10/05 14:31:14 by nivilca-         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:33:58 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_putendl_fd(char *s, int fd) {
-    if (s == NULL)  
-        return;
+#include "libft.h"
 
-    while (*s) { 
-        write(fd, s, 1);
-        s++;
-    }
-    
-    write(fd, "\n", 1);
+void	ft_putendl_fd(char *s, int fd)
+{
+	if (s == NULL)
+		return ;
+	while (*s)
+	{
+		write (fd, s, 1);
+		s++;
+	}
+	write (fd, "\n", 1);
 }
-

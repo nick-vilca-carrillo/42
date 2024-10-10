@@ -6,7 +6,7 @@
 /*   By: nivilca- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:11:32 by nivilca-          #+#    #+#             */
-/*   Updated: 2024/10/05 14:32:08 by nivilca-         ###   ########.fr       */
+/*   Updated: 2024/10/10 20:07:50 by nivilca-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,3 @@ char	**ft_split(char const *s, char c)
 	result[i] = NULL;
 	return (result);
 }
-
-
-
-
